@@ -84,8 +84,10 @@ module.exports = function gerarValores(){
 	"rows": linhas.map(function(item){
         const numero = parseFloat((Math.random()*10).toFixed(2));
         item.c[1].v += numero;
-        item.c[1].v = parseFloat(item.c[1].v.toFixed(2));
-        item.c[2].v = 'R$ '+item.c[1].v;
+        //item.c[1].v = parseFloat(item.c[1].v.toFixed(2));
+        item.c[1].v = item.c[1].v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'});
+        //item.c[2].v = 'R$ '+item.c[1].v;
+        item.c[2].v =  item.c[1].v
         return item; 
     })
 }
